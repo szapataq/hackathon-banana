@@ -25,7 +25,7 @@ function App() {
   return (
     <div className="container mt-3">
       <h2>Emprendimientos</h2>
-      <div className="containermt mt-5">
+      <div className="container mt-5">
         {
           emprendimiento.map((item) => (
           <div key={item.id}>
