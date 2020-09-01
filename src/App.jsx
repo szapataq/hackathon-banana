@@ -1,3 +1,4 @@
+
 import React, { useState, Children } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom'
 import MainLayout from './components/layout/MainLayout'
@@ -8,7 +9,6 @@ import CommunityContainer from './containers/CommunityContainer'
 import TrainingsContainer from './containers/TrainingsContainer'
 import ChatContainer from './containers/ChatContainer'
 import ProfileContainer from './containers/ProfileContainer'
-
 
 
 function App() {
@@ -30,7 +30,6 @@ function App() {
       </Route>
     );
   }
-
 
   return (
     <Router>
