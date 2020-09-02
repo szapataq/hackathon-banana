@@ -1,5 +1,8 @@
-$font: Poppins;
-$color: #182645;
+// $font: Poppins;
+// $color: #182645;
+
+@import '../variables';
+
 
 .cm-profile {
   display: flex;
@@ -11,8 +14,8 @@ $color: #182645;
 
 .bt-entrepreneur {
   outline: none;
-  background: #182645;
-  color: white;
+  background: $bottomColor;
+  color:$textColor;
   font-size: 0.8rem;
   border: 0px;
   padding: 0.5rem 1.5rem;
@@ -59,15 +62,15 @@ $color: #182645;
 }
 
 .name {
-  font-family: Poppins;
+  font-family: $font;
   font-weight: 500;
   font-size: 1.3rem;
-  color: #182645;
+  color: $bottomColor;
   margin: 0px;
 }
 
 .description {
-  font-family: Poppins;
+  font-family: $font;
   height: 4rem;
   color: #333333;
   opacity: 0.54;
