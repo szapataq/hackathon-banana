@@ -1,12 +1,13 @@
 import React from 'react'
 import MobileBar from '../MobileBar'
+import './mainLayout.scss';
 
 function MainLayout({ children }) {
   return (
     <>
-      <div>
+      <section className="mainLayout">
         {children}
-      </div>
+      </section>
       <MobileBar />
     </>
   )
