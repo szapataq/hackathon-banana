@@ -15,7 +15,9 @@ function Form() {
   function handlePassword(e) {
     setPassword(e.target.value)
   }
-  console.log(email, password);
+
+  // console.log(email, password);
+
   return (
     <form className='form-login'>
       <div className='email-content'>
@@ -26,7 +28,7 @@ function Form() {
         <img src={passwordIcon} className='password-content-icon' />
         <input type="text" placeholder='Correo electrónico' onChange={handlePassword} value={password} />
       </div>
-      <Link>¿Olvidaste la contraseña?</Link>
+      <Link to='' >¿Olvidaste la contraseña?</Link>
     </form>
   )
 }
