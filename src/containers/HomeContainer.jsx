@@ -1,9 +1,13 @@
 import React from 'react'
+import HeaderComponent from '../components/HeaderComponent'
+
 
 function HomeContainer() {
   return (
     <div>
-      <h1>Homecontainer</h1>
+      <HeaderComponent className='header-container' isHome>
+
+      </HeaderComponent>
     </div>
   )
 }
