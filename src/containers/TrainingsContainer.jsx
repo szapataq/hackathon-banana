@@ -1,11 +1,10 @@
 import React from 'react'
-import MainLayout from '../components/layout/MainLayout'
 
 function TrainingsContainer() {
   return (
-    <MainLayout>
+    <div>
       TrainingsContainer
-    </MainLayout>
+    </div>
   )
 }
 

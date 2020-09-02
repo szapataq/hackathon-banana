@@ -1,14 +1,10 @@
 import React from 'react'
-import MainLayout from '../components/layout/MainLayout'
 
 function HomeContainer() {
   return (
-    <MainLayout>
-      <div>
-        HomeContainer
-        //aqio ira el contenido de Home
-      </div>
-    </MainLayout>
+    <div>
+      <h1>Homecontainer</h1>>
+    </div>
   )
 }
 

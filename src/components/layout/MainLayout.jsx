@@ -3,11 +3,12 @@ import MobileBar from '../MobileBar'
 
 function MainLayout({ children }) {
   return (
-    <div>
-      <MobileBar>
+    <>
+      <div>
         {children}
-      </MobileBar>
-    </div>
+      </div>
+      <MobileBar />
+    </>
   )
 }
 

@@ -3,7 +3,9 @@ import React from 'react'
 function MobileBar() {
   return (
     <div>
-      movileBar
+      <a>
+        <p>inicio comunidad</p>
+      </a>
     </div>
   )
 }
