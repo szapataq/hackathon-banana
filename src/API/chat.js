@@ -1,15 +1,20 @@
 import { firestore, auth } from '../firebase';
+import React from 'react';
 
 
 export const getAllChats = (id) => {
-	firestore.collection("chats").where("IDAddressee", "==", id).get()
+	return firestore.collection("chats").where("IDAddressee", "==", id).get()
 		.then((doc) => {
+			const chats = [];
 			doc.forEach((doc) => {
-				//Extrae 
-				console.log(doc.data())
+				chats.push(doc.data())
 			});
+			return chats
 		})
+		.catch((e) => console.log(e))
 }
+
+
 
 export const getAChat = (idReceptor) => {
 	firestore.collection("chats").where("IDReceptor", "==", idReceptor).get()
