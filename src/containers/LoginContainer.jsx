@@ -1,8 +1,10 @@
 import React from 'react'
-import Form from '../components/Form'
+import FormLogin from '../components/FormLogin'
 import logo from '../assets/icons/logo.svg'
 
 function LoginContainer() {
+
+
   return (
     <>
       <div>
@@ -10,7 +12,7 @@ function LoginContainer() {
         <h1>BANANA</h1>
         <span>Emprendiendo juntos</span>
       </div>
-      <Form></Form>
+      <FormLogin></FormLogin>
     </>
   )
 }
