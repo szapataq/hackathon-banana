@@ -6,7 +6,7 @@ import notificationMessage from '../assets/icons/ notificationMessage.svg'
 
 function HeaderComponent({ isHome, imageIcon, titleHeader, ...rest }) {
   return (
-    <div {...rest}>
+    <div {...rest} className="header-father">
       {
         isHome ?
           <div className='.header-container'>

@@ -7,11 +7,14 @@ import CommunityContainer from './containers/CommunityContainer';
 import TrainingsContainer from './containers/TrainingsContainer';
 import ChatContainer from './containers/ChatContainer';
 import ProfileContainer from './containers/ProfileContainer';
-
+import {auth} from './firebase.js';
 
 
 function App() {
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true)
+  const authEmailPassword = (email, password) => auth.signInWithEmailAndPassword(email, password)
+  .then(() => true);
+  const result = authEmailPassword("prueba@gmail.com", "prueba123");
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(result)
 
   function LoggedInRoute({ children, ...rest }) {
 

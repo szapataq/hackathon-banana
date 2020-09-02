@@ -6,7 +6,7 @@ function CommunityContainer() {
 	return (
 		<>
 			<CommunityProfile />
-			<button class="bt-entrepreneur">Contactar al emprendedor</button>
+			<button className="bt-entrepreneur">Contactar al emprendedor</button>
 			<section className="products">
 				<CommunityCard />
 			</section>
