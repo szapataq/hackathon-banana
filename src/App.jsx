@@ -34,8 +34,8 @@ function App() {
   return (
     <Router>
       <Switch>
-        <Route path='/login' component={LoginContainer} />
-        <LoggedInRoute path='/home'>
+        <Route path='/' exact component={LoginContainer} />
+        <LoggedInRoute path='/home' >
           <HomeContainer />
         </LoggedInRoute>
         <LoggedInRoute path='/community'>
