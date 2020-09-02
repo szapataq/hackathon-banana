@@ -1,9 +1,13 @@
 import React from 'react'
+import HeaderComponent from '../components/HeaderComponent'
+import logo from '../assets/icons/logo.svg'
 
 function ChatContainer() {
   return (
     <div>
-    //aqio ira el contenido del chat
+      <HeaderComponent imageIcon={logo} titleHeader='Chat emprendedor'>
+
+      </HeaderComponent>
     </div>
   )
 }
