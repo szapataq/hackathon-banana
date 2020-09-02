@@ -4,7 +4,7 @@ import HeaderComponent from '../components/HeaderComponent';
 import logo from '../assets/icons/logo.svg';
 import './trainingsContainer.scss';
 import CardTraining from '../components/CardTraining';
-import {firebase} from './../firebase';
+import {firestore} from './../firebase';
 
 function TrainingsContainer() {
 
@@ -13,8 +13,7 @@ function TrainingsContainer() {
   useEffect(() => {
     const getDataTraining = async() => {
       try {
-        const db = firebase.firestore();
-        const data = await db.collection('trainings').get();
+        const data = await firestore.collection('trainings').get();
         const arrayData = data.docs.map(doc => ({id:doc.id, ...doc.data()}))
         console.log(arrayData);
         setTraining(arrayData);
