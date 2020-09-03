@@ -1,0 +1,86 @@
+@import '../variables';
+$shadow: rgba(0, 0, 0, 0.25);
+$azul: #182645;
+$plomo: #EFEFF4;
+
+.search-community{
+    width: 90%;
+    height: 40px;
+    background: $textColor;
+    margin: 24px auto;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: 20% 80%;
+    outline: none;
+    border:none;
+
+    input{
+        outline: none;
+        border:none;
+        color: #979797;
+        font-family: $font;
+        border-radius: 20px;
+    }
+    img{
+        width: 17px;
+        height: 17px;
+        align-self: center;
+        justify-self: center;
+    }
+}
+.card-commu{
+    height: 5.625rem;
+    background-color:$textColor;
+    box-shadow: 0px 4px 4px $shadow;
+    border-radius: 10px;
+    width: 90%;
+    height: 148px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: $font;
+    margin-bottom: 20px;
+
+    .img-company{
+        border-radius: 10px;
+        height: 82px;   
+        overflow:hidden;
+        margin:0;
+        img{
+            min-width:100%;
+        }
+    }
+    .content-company{
+        display: grid;
+        grid-template-columns: 60% 40%;
+        padding: 11px 22px 14px 14px;
+
+        p{
+            color: $bottomColor;
+            margin-bottom: 0px;
+            font-family: $font;
+            font-size: 16px;
+            line-height: 21px;
+            font-weight: 500;
+            font-style: normal;
+            font-weight: 600;
+        }
+        span{
+            font-style: normal;
+            font-size: 14px;
+            line-height: 18px;
+            color:$plomoSub;
+        }
+    }
+    button{
+        align-self: end;
+        justify-self: end;
+        width: 100px;
+        height: 31px;
+        background: #182645;
+        box-shadow: 0px 4px 4px $shadow;
+        border-radius: 15px;
+        border: none;
+        color: $textColor;
+        outline: 0;
+    };
+}

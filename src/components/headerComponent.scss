@@ -1,7 +1,4 @@
 @import '../variables';
-.header-father {
-	width: 100%;
-}
 
 .header-container{
   position: fixed;
@@ -59,9 +56,8 @@
       right: 20.29rem;
     }
     &-title{
-      position: absolute;
-      top: 4.3125rem;
-      left:10.5rem;
+      text-align: right;
+      padding-right: 40px;
       font-family: Poppins;
       font-style: normal;
       font-weight: 500;
