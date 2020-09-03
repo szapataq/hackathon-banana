@@ -1,25 +1,41 @@
 import React, { useState, useEffect } from 'react';
-import { getAllChats } from '../API/chat';
-import { auth } from '../firebase';
+import { getAllChats, getInfoUser } from '../API/chat';
+import { Link } from 'react-router-dom';
 import './Chat.scss'
 
 
-const Chat = () => {
+const BoxChat = () => {
+
 	const user = "prueba";
-	const [chat, setChat] = useState([]);
+	const [infoUsers, setInfoUsers] = useState([]);
 	const getChats = async () => await getAllChats(user);
 	useEffect(() => {
-		getChats().then((response) => setChat(response))
+		getChats().then((ids) => {
+			const promises = ids.map((id) => {
+				return getInfoUser(id)
+			})
+			return Promise.all(promises)
+		}).then((r) => setInfoUsers(r))
 	}, []);
+	
 	return (
-		<>
-			{chat.map((chat, id) => {
-				return (<div key={id}>
-					<p>{chat.IDReceptor}</p>
-				</div>)
+		<div className="box-chat">
+			{infoUsers.map((user, key) => {
+				return (
+					<Link to={`/chat/${user.id}`}>
+						<div key={key} className="user-chat">
+							<img src={user.photoUserUrl} alt="Not available" className="img-chat"></img>
+							<div>
+								<p className="name-company">{user.nameCompany}</p>
+								<p className="ubication">{user.ubication}</p>
+							</div>
+						</div>
+					</Link>
+				)
 			})}
-		</>
-	);
+		</div>);
 }
 
-export default Chat;
+export default BoxChat;
+
+

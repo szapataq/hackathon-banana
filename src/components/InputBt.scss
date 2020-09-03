@@ -1,12 +1,24 @@
 .inputBt-container {
-	width: 100%;
-	padding: 0rem 2rem;
-	.input-chat {
-		width: 80%;
-	}
-	.send-chat {
-		width: 16%;
-		margin-left: 0.7rem;
-
-	}
+  width: 100%;
+  padding: 0rem 2rem;
+  .input-chat {
+    outline: none;
+    border: 0px;
+    border-radius: 3rem;
+    width: 17rem;
+    height: 2.5rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    font-family: Poppins;
+  }
+  .send-chat {
+    outline: none;
+    font-family: Poppins;
+    border-radius: 3rem;
+    height: 2.3rem;
+    color: white;
+    background: #376abb;
+    border: 0px;
+    width: 16%;
+    margin-left: 0.7rem;
+  }
 }

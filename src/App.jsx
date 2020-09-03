@@ -7,14 +7,11 @@ import CommunityContainer from './containers/CommunityContainer';
 import TrainingsContainer from './containers/TrainingsContainer';
 import ChatContainer from './containers/ChatContainer';
 import ProfileContainer from './containers/ProfileContainer';
-import {auth} from './firebase.js';
+import MainChat from './containers/MainChat';
 
 
 function App() {
-  const authEmailPassword = (email, password) => auth.signInWithEmailAndPassword(email, password)
-  .then(() => true);
-  const result = authEmailPassword("prueba@gmail.com", "prueba123");
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(result)
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true)
 
   function LoggedInRoute({ children, ...rest }) {
 
@@ -46,8 +43,11 @@ function App() {
         <LoggedInRoute path='/trainings'>
           <TrainingsContainer />
         </LoggedInRoute>
-        <LoggedInRoute path='/chat'>
+        <LoggedInRoute exact path='/chat'>
           <ChatContainer />
+        </LoggedInRoute>
+		<LoggedInRoute exact path='/chat/:id'>
+          <MainChat />
         </LoggedInRoute>
         <LoggedInRoute path='/profile'>
           <ProfileContainer />

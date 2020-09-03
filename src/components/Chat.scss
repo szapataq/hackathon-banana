@@ -1,14 +1,42 @@
 .search {
-	display: flex;
-    flex-direction: row-reverse;
-    padding: 2rem;
+  display: flex;
+  flex-direction: row-reverse;
+  padding: 2rem;
 }
 
 .input-search {
-	outline: none;
-    border: 2px solid;
-    padding: 0.5rem;
-    width: 18rem;
-    border-radius: 2rem;
-    height: 3rem;
+  outline: none;
+  border: none;
+  padding: 0.8rem;
+  width: 18rem;
+  border-radius: 2rem;
+  height: 3rem;
+}
+
+.box-chat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 30rem;
+  .user-chat {
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    height: 6rem;
+    width: 23rem;
+    padding: 1rem;
+    border-top: 0.5px solid #878787;
+    border-bottom: 0.5px solid #878787;
+    p {
+      font-family: Poppins;
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+      margin-top: 0.5rem;
+    }
+    img {
+      border-radius: 50%;
+      width: 4rem;
+      margin-right: 1rem;
+    }
+  }
 }
