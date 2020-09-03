@@ -51,7 +51,7 @@ function App() {
         <LoggedInRoute exact path='/trainings/:id'>
           <InfoTraining />
         </LoggedInRoute>
-        <LoggedInRoute path='/chat'>
+        <LoggedInRoute exact path='/chat'>
           <ChatContainer />
         </LoggedInRoute>
 		<LoggedInRoute exact path='/chat/:id'>
