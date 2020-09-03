@@ -1,15 +1,29 @@
-// $font: Poppins;
-// $color: #182645;
-
 @import '../variables';
 
 
 .cm-profile {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 100%;
+  display: grid;
+  max-width: 100%;
   align-items: center;
+
+  .background-picture{
+    width:100%;
+    height:10rem;      
+    overflow:hidden;
+    margin:0;
+    img{
+      min-width:100%;
+
+    }
+  }
+  .profile-picture {
+    justify-self: center;
+    width: 128px;
+    height: 128px;
+    z-index: 1;
+    margin-top: -4rem;
+    border-radius: 50%;
+  }
 }
 
 .bt-entrepreneur {
@@ -21,29 +35,6 @@
   padding: 0.5rem 1.5rem;
   border-radius: 2rem;
   font-family: $font;
-}
-
-.products {
-  display: flex;
-  flex-direction: row;
-  padding: 3rem 1.8rem 0px;
-  width: 100%;
-  justify-content: space-between;
-  height: 16rem;
-}
-
-.background-picture {
-  width: 100%;
-  height: 12rem;
-  z-index: 0;
-}
-
-.profile-picture {
-  width: 35%;
-  height: 8.5rem;
-  z-index: 1;
-  margin-top: -4rem;
-  border-radius: 50%;
 }
 
 .city {
@@ -68,13 +59,28 @@
   color: $bottomColor;
   margin: 0px;
 }
+.container-description{
+  background: #FFFFFF;
+  border-radius: 20px;
+  padding: 10px;
+  width: 90%;
+  text-align: center;
 
-.description {
-  font-family: $font;
-  height: 4rem;
-  color: #333333;
-  opacity: 0.54;
-  padding: 0rem 1.3rem;
-  font-size: 0.8rem;
-  margin: 0px;
+  .description {
+    justify-self: center;
+    font-family: $font;
+    color: #333333;
+    opacity: 0.54;
+    font-size: 0.8rem;
+  }
+
+}
+.title-prod{
+  font-family: Poppins;
+  font-style: normal;
+  font-weight: normal;
+  font-size: 14px;
+  line-height: 21px; 
+  color: #182645;
+  padding: 30px;
 }

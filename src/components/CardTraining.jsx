@@ -19,4 +19,4 @@ const CardTraining = (props) => {
   )
 }
 
-export default CardTraining
+export default CardTraining;
