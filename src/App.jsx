@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import LoginContainer from './containers/LoginContainer';
@@ -10,54 +10,87 @@ import ChatContainer from './containers/ChatContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import InfoTraining from './components/InfoTraining'
 import MainChat from './containers/MainChat';
+import { auth } from './firebase'
+import Loader from './components/Loader'
 
+function LoggedInRoute({ children, isUserLoggedIn, ...rest }) {
+
+  return (
+    <Route
+      {...rest}
+      render={() => {
+        if (isUserLoggedIn) {
+          return <MainLayout>{children}</MainLayout>
+        }
+        return <Redirect to='/login' />
+      }
+      }
+    >
+    </Route>
+  );
+}
+function NonLoggedInRoute({ children, isUserLoggedIn, ...rest }) {
+
+  return (
+    <Route
+      {...rest}
+      render={() => {
+        if (!isUserLoggedIn) {
+          return <>{children}</>
+        }
+        return <Redirect to='/home' />
+      }
+      }
+    >
+    </Route>
+  );
+}
 
 function App() {
-  // const authEmailPassword = (email, password) => auth.signInWithEmailAndPassword(email, password)
-  // .then(() => true);
-  // const result = authEmailPassword("prueba@gmail.com", "prueba123");
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true)
 
-  function LoggedInRoute({ children, ...rest }) {
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(false)
+  const [loading, setLoading] = useState(true)
 
-    return (
-      <Route
-        {...rest}
-        render={() => {
-          if (isUserLoggedIn) {
-            return <MainLayout>{children}</MainLayout>
-          }
-          return <Redirect to='/login' />
-        }
-        }
-      >
-      </Route>
-    );
-  }
+  useEffect(() => {
+    auth.onAuthStateChanged((user) => {
+      if (user) {
+        setIsUserLoggedIn(true)
+        console.log('existe');
+      } else {
+        setIsUserLoggedIn(false)
+      }
+      setLoading(false)
+
+    })
+  }, [])
+
+  if (loading) return <Loader />
 
   return (
     <Router>
       <Switch>
-        <Route path='/' exact component={LoginContainer} />
-        <LoggedInRoute path='/home' >
+        <NonLoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/login'>
+          <LoginContainer />
+        </NonLoggedInRoute>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/home' >
           <HomeContainer />
         </LoggedInRoute>
-        <LoggedInRoute path='/community'>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/community'>
           <AllCommunityContainer />
         </LoggedInRoute>
-        <LoggedInRoute exact path='/trainings'>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/trainings'>
           <TrainingsContainer />
         </LoggedInRoute>
-        <LoggedInRoute exact path='/trainings/:id'>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/trainings/:id'>
           <InfoTraining />
         </LoggedInRoute>
-        <LoggedInRoute exact path='/chat'>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/chat'>
           <ChatContainer />
         </LoggedInRoute>
-		<LoggedInRoute exact path='/chat/:id'>
+		<LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/chat/:id'>
           <MainChat />
         </LoggedInRoute>
-        <LoggedInRoute path='/profile'>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/profile'>
           <ProfileContainer />
         </LoggedInRoute>
       </Switch>

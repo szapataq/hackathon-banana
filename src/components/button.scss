@@ -1,17 +1,42 @@
 @import '../variables';
 
-.btn-zoom{
-    background-color: #182645;
-    border-radius: 15px;
-    padding: auto 12px;
-    width: 9.5625rem;
-    height: 31px;
-    justify-self: center;
+@mixin styleButton(){
+  background-color: $bottomColor;
+  color: $textColor;
+  border: none;
+  font-size: 0.8rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-family: $font;
+  box-shadow: 0 0 3px $shadow;
+  &:not(:disabled){
+      outline: none;
+    }
+}
 
-    a:link, a:visited, a:active{
+.btn-zoom{
+  @include styleButton();
+  justify-self: center;
+  a:link, a:visited, a:active{
         align-self: start;
         color: #fff;
         text-decoration: none;
         font-size: 14px;
     }
+  }
+  
+  .bt-entrepreneur {
+    @include styleButton()
+}
+
+.bt-login{
+  @include styleButton()
+}
+.bt-seemore{
+  @include styleButton();
+  align-self: end;
+  justify-self: end;
+  width: 100px;
+  height: 31px;
+  padding: 0;
 }
