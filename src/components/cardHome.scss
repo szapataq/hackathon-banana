@@ -1,0 +1,9 @@
+@import '../variables';
+
+.content-card{
+width: 100%;
+height: 6.125rem;
+margin-top: 13rem;
+box-shadow: 0 0 3px $shadow;
+background-color: $textColor;
+}

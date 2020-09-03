@@ -1,0 +1,14 @@
+.search {
+	display: flex;
+    flex-direction: row-reverse;
+    padding: 2rem;
+}
+
+.input-search {
+	outline: none;
+    border: 2px solid;
+    padding: 0.5rem;
+    width: 18rem;
+    border-radius: 2rem;
+    height: 3rem;
+}

@@ -1,0 +1,42 @@
+@import '../variables';
+
+@mixin styleButton(){
+  background-color: $bottomColor;
+  color: $textColor;
+  border: none;
+  font-size: 0.8rem;
+  border-radius: 1rem;
+  padding: 0.5rem 1.5rem;
+  font-family: $font;
+  box-shadow: 0 0 3px $shadow;
+  &:not(:disabled){
+      outline: none;
+    }
+}
+
+.btn-zoom{
+  @include styleButton();
+  justify-self: center;
+  a:link, a:visited, a:active{
+        align-self: start;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+    }
+  }
+  
+  .bt-entrepreneur {
+    @include styleButton()
+}
+
+.bt-login{
+  @include styleButton()
+}
+.bt-seemore{
+  @include styleButton();
+  align-self: end;
+  justify-self: end;
+  width: 100px;
+  height: 31px;
+  padding: 0;
+}
