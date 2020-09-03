@@ -23,14 +23,14 @@ function TrainingsContainer() {
     };
     getDataTraining();
   }, []);
-
+  
   return (
     <div>
       <HeaderComponent imageIcon={logo} titleHeader='Capacitaciones' />
       <div className="container-training">
         {
           training.map((item) => {
-            return <CardTraining key={item.id} id={item.id} imgURL={item.imgURL} title={item.name} time={item.time.date} />;
+            return <CardTraining key={item.id} id={item.id} imgURL={item.imgURL} title={item.name} time={item.date} />;
           }
           )
         }
