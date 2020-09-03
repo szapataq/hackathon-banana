@@ -1,0 +1,17 @@
+@import '../variables';
+
+.btn-zoom{
+    background-color: #182645;
+    border-radius: 15px;
+    padding: auto 12px;
+    width: 9.5625rem;
+    height: 31px;
+    justify-self: center;
+
+    a:link, a:visited, a:active{
+        align-self: start;
+        color: #fff;
+        text-decoration: none;
+        font-size: 14px;
+    }
+}
