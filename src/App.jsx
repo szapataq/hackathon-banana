@@ -9,6 +9,7 @@ import TrainingsContainer from './containers/TrainingsContainer';
 import ChatContainer from './containers/ChatContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import InfoTraining from './components/InfoTraining'
+import MainChat from './containers/MainChat';
 import { auth } from './firebase'
 import Loader from './components/Loader'
 
@@ -83,8 +84,11 @@ function App() {
         <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/trainings/:id'>
           <InfoTraining />
         </LoggedInRoute>
-        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/chat'>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/chat'>
           <ChatContainer />
+        </LoggedInRoute>
+		<LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/chat/:id'>
+          <MainChat />
         </LoggedInRoute>
         <LoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/profile'>
           <ProfileContainer />

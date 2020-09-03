@@ -26,6 +26,18 @@
   }
 }
 
+.bt-entrepreneur {
+  outline: none;
+  background: $bottomColor;
+  color:$textColor;
+  font-size: 0.8rem;
+  border: 0px;
+  padding: 0.5rem 1.5rem;
+  border-radius: 2rem;
+  font-family: $font;
+  margin: 0rem 6.01rem 0rem;
+}
+
 .city {
   font-family: $font;
   font-size: 0.9rem;
