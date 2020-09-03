@@ -8,9 +8,9 @@ import Search from '../components/Search'
 function ChatContainer() {
   return (
     <>
-      <HeaderComponent imageIcon={logo} titleHeader='Chat emprendedor'/>
-	  <Search />
-	  <Chat />
+      <HeaderComponent imageIcon={logo} titleHeader='Chat emprendedor' />
+      <Search />
+      <Chat />
     </>
   )
 }
