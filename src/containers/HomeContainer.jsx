@@ -4,10 +4,13 @@ import alarmaIcon from '../assets/icons/alarmaIcon.svg'
 import avisoIcon from '../assets/icons/avisoIcon.svg'
 import HeaderComponent from '../components/HeaderComponent'
 import CardHome from '../components/CardHome'
+import {auth} from '../firebase';
 
 
 
 function HomeContainer() {
+  console.log(auth.currentUser);
+
   return (
     <div>
       <HeaderComponent className='header-container' isHome />
