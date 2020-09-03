@@ -32,3 +32,11 @@
 .bt-login{
   @include styleButton()
 }
+.bt-seemore{
+  @include styleButton();
+  align-self: end;
+  justify-self: end;
+  width: 100px;
+  height: 31px;
+  padding: 0;
+}
