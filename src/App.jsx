@@ -1,4 +1,4 @@
-import React, { useState, Children } from 'react';
+import React, { useState } from 'react';
 import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-dom';
 import MainLayout from './components/layout/MainLayout';
 import LoginContainer from './containers/LoginContainer';
@@ -7,14 +7,14 @@ import CommunityContainer from './containers/CommunityContainer';
 import TrainingsContainer from './containers/TrainingsContainer';
 import ChatContainer from './containers/ChatContainer';
 import ProfileContainer from './containers/ProfileContainer';
-import {auth} from './firebase.js';
+import InfoTraining from './components/InfoTraining'
 
 
 function App() {
-  const authEmailPassword = (email, password) => auth.signInWithEmailAndPassword(email, password)
-  .then(() => true);
-  const result = authEmailPassword("prueba@gmail.com", "prueba123");
-  const [isUserLoggedIn, setIsUserLoggedIn] = useState(result)
+  // const authEmailPassword = (email, password) => auth.signInWithEmailAndPassword(email, password)
+  // .then(() => true);
+  // const result = authEmailPassword("prueba@gmail.com", "prueba123");
+  const [isUserLoggedIn, setIsUserLoggedIn] = useState(true)
 
   function LoggedInRoute({ children, ...rest }) {
 
@@ -43,8 +43,11 @@ function App() {
         <LoggedInRoute path='/community'>
           <CommunityContainer />
         </LoggedInRoute>
-        <LoggedInRoute path='/trainings'>
+        <LoggedInRoute exact path='/trainings'>
           <TrainingsContainer />
+        </LoggedInRoute>
+        <LoggedInRoute exact path='/trainings/:id'>
+          <InfoTraining />
         </LoggedInRoute>
         <LoggedInRoute path='/chat'>
           <ChatContainer />
