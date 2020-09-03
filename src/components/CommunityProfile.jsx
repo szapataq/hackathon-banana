@@ -18,7 +18,7 @@ const CommunityProfile = ({ name, urlProfile, urlBackground, description }) => {
 				</div>
 			</div>
 			<p className="title-prod">Muestra tu trabajo</p>
-			<div class="container-products">
+			<div className="container-products">
 
 			</div>
 		</div>
