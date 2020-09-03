@@ -11,7 +11,7 @@ function Infodivaining() {
       <HeaderComponent imageIcon={logo} titleHeader='Capacitaciones' />
       <div className="container-info">
         <div className="info-title">
-          <div class="img-training"><img src="https://i.pinimg.com/originals/8b/d6/1f/8bd61f64ebe510569969f46d14e9e19f.jpg" alt=""/></div>
+          <div class="img-training"><img src="https://i.pinimg.com/originals/8b/d6/1f/8bd61f64ebe510569969f46d14e9e19f.jpg" alt="" /></div>
           <p>Aprende a usar el chat emprendedor</p>
         </div>
         <div className="info-details">
@@ -28,9 +28,9 @@ function Infodivaining() {
             <div className="second-colum">Aprende a usar el chat para conectar con odivos emprendedores, conocer sus emprendimientos .</div>
           </div>
         </div>
-      <Button className='btn-zoom'>
-         <a className="link-a" href="https://chat.whatsapp.com/EVaX6zJyshb11WfX3byLaV">Unirme al grupo</a>
-      </Button>
+        <Button className='btn-zoom'>
+          <a className="link-a" href="https://chat.whatsapp.com/EVaX6zJyshb11WfX3byLaV">Unirme al grupo</a>
+        </Button>
       </div>
     </>
   )
