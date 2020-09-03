@@ -3,7 +3,8 @@ import { BrowserRouter as Router, Route, Switch, Redirect } from 'react-router-d
 import MainLayout from './components/layout/MainLayout';
 import LoginContainer from './containers/LoginContainer';
 import HomeContainer from './containers/HomeContainer';
-import CommunityContainer from './containers/CommunityContainer';
+import AllCommunityContainer from './containers/AllCommunityContainer';
+// import CommunityContainer from './containers/CommunityContainer';
 import TrainingsContainer from './containers/TrainingsContainer';
 import ChatContainer from './containers/ChatContainer';
 import ProfileContainer from './containers/ProfileContainer';
@@ -41,7 +42,7 @@ function App() {
           <HomeContainer />
         </LoggedInRoute>
         <LoggedInRoute path='/community'>
-          <CommunityContainer />
+          <AllCommunityContainer />
         </LoggedInRoute>
         <LoggedInRoute exact path='/trainings'>
           <TrainingsContainer />
