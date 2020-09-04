@@ -1,12 +1,11 @@
-import React, { useState, useEffect } from 'react'
-import CardCatalogue from '../components/CardWrapperCatalogue';
-import { getInfoUser } from '../API/chat';
-import { auth } from '../firebase';
-import './profileContainer.scss'
+import React, { useState, useEffect } from "react";
+import CommunityCard from "../components/CommunityCard";
+import { getInfoUser } from "../API/chat";
+import { auth } from "../firebase";
+import "./profileContainer.scss";
 
 function ProfileContainer() {
-	const [userCurrent, setUserCurrent] = useState([]);
-	const signOut = () => auth.signOut();
+  const [userCurrent, setUserCurrent] = useState([]);
 
 	const user = auth.currentUser.uid;
 	useEffect(() => {
@@ -40,4 +39,4 @@ function ProfileContainer() {
 	)
 }
 
-export default ProfileContainer
+export default ProfileContainer;

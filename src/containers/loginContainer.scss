@@ -1,0 +1,77 @@
+.container-login{
+    display:grid;
+    width: 100%;
+    grid-template-rows: 40% 60%;
+    height: 100vh;
+}
+.container-title{
+    width: 220px;
+    position: relative;
+    align-self: center;
+    margin: auto;
+
+
+    img{
+        position: absolute;
+        top: 0px;
+        right: 0px;
+        height: 90px;
+        width: 90px;
+    }
+    h1{
+        padding-top: 60px;
+        margin:0;
+        font-family: Poppins;
+        font-style: normal;
+        font-weight: 800;
+        line-height: 36px;
+    }
+    span{
+        color: #979797;
+        font-size: 10px;
+        padding-left: 80px;
+    }
+}
+
+.form-login{
+
+    .comun{
+        width: 80%;
+        height: 48px;
+        background: #EFEFF4;
+        border-radius: 10px;
+        justify-self: center;
+        margin: 0 auto 22px auto;
+        display: grid;
+        grid-template-columns: 15% 85%;
+    }
+    .icon-input{
+        align-self: center;
+        justify-self: center;
+        height: 30px;
+        width: 30px;
+    }
+    input{
+        outline: none;
+        border: none;
+        border-radius: 0.625rem;
+        height: 3rem;
+        padding: 0 10px;
+        background: #EFEFF4;
+    }
+}
+.link-olv{
+    margin: 0 auto 22px auto;
+    width: 80%;
+}
+.link{
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 18px;
+    text-decoration-line: underline;
+    color: #979797;
+}
+.container-button{
+    margin-top: 50px;
+    display: grid;
+}

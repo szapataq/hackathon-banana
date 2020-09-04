@@ -1,7 +1,44 @@
-.card {
-	display: flex;
-	background-color: white;
-    height: 9rem;
-    width: 8rem;
-    align-items: center;
+.nuestro-catalogo {
+  font-family: Poppins;
+  font-style: bold;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 24px;
+  color: #182645;
+  margin-left: 46px;
+  margin-top: 19px;
+}
+.content-cataloge {
+  margin-left: 3rem;
+  display: grid;
+  grid-template-columns: 160px 160px;
+  grid-template-rows: 190px 190px;
+  justify-items: center;
+  .card {
+    background-color: white;
+    height: 11rem;
+    width: 9rem;
+    border-radius: 25px;
+    padding-left: 18px;
+    padding-top: 15px;
+    .photo-product {
+      width: 6rem;
+    }
+    .description {
+      margin: 0;
+      font-size: 12px;
+      line-height: 18px;
+      color: #182645;
+      line-height: 18px;
+      font-family: Poppins;
+    }
+    .preice {
+      margin: 0;
+      font-size: 12px;
+      line-height: 14px;
+      color: #182645;
+      font-weight: bold;
+      font-family: Roboto;
+    }
+  }
 }
