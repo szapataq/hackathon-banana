@@ -1,8 +1,9 @@
 # Fundación BANANA - Squad 6
 
 ### Acceso a la App
-Usuario:
-Contraseña:
+Usuario: chompas-lucy@gmail.com
+
+Contraseña: chompaslucy
 
 ![BANANA](https://user-images.githubusercontent.com/60905476/92187738-35f78700-ee20-11ea-8baf-c6558e6925df.png)
 
