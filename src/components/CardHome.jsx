@@ -1,5 +1,5 @@
-import React from 'react'
-import './cardHome.scss'
+import React from 'react';
+import './cardHome.scss';
 
 function CardHome({ title, porcentaje, description, iconCard, ...rest }) {
   return (
@@ -9,9 +9,9 @@ function CardHome({ title, porcentaje, description, iconCard, ...rest }) {
         <span>{porcentaje}</span>
         {description}
       </p>
-      <img src={iconCard} className='iconCard' />
+      <img src={iconCard} className='iconCard' alt=""/>
     </div>
   )
 }
 
-export default CardHome
+export default CardHome;

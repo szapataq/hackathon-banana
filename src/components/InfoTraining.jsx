@@ -48,6 +48,10 @@ const Infodivaining = () => {
             <div className="second-colum">{user.hour}</div>
           </div>
           <div className="info-row">
+            <div className="first-colum">Canal</div>
+            <div className="second-colum">{user.canal}</div>
+          </div>
+          <div className="info-row">
             <div className="first-colum">Tema</div>
             <div className="second-colum">{user.description}</div>
           </div>
