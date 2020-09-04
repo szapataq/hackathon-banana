@@ -29,6 +29,7 @@ const Infodivaining = () => {
     getDataTraining();
   }, []);
 
+  
   return (
     <>
       <HeaderComponent imageIcon={logo} titleHeader='Capacitaciones' />
