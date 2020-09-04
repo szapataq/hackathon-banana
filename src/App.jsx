@@ -9,6 +9,7 @@ import TrainingsContainer from './containers/TrainingsContainer';
 import ChatContainer from './containers/ChatContainer';
 import ProfileContainer from './containers/ProfileContainer';
 import InfoTraining from './components/InfoTraining'
+import CommunityContainer from './containers/CommunityContainer'
 import MainChat from './containers/MainChat';
 import { auth } from './firebase'
 import Loader from './components/Loader'
@@ -22,7 +23,7 @@ function LoggedInRoute({ children, isUserLoggedIn, ...rest }) {
         if (isUserLoggedIn) {
           return <MainLayout>{children}</MainLayout>
         }
-        return <Redirect to='/login' />
+        return <Redirect to='/' />
       }
       }
     >
@@ -69,14 +70,17 @@ function App() {
   return (
     <Router>
       <Switch>
-        <NonLoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/login'>
+        <NonLoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/'>
           <LoginContainer />
         </NonLoggedInRoute>
         <LoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/home' >
           <HomeContainer />
         </LoggedInRoute>
-        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/community'>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/community'>
           <AllCommunityContainer />
+        </LoggedInRoute>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/community/:id'>
+          <CommunityContainer />
         </LoggedInRoute>
         <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/trainings'>
           <TrainingsContainer />
@@ -87,7 +91,7 @@ function App() {
         <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/chat'>
           <ChatContainer />
         </LoggedInRoute>
-		<LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/chat/:id'>
+        <LoggedInRoute isUserLoggedIn={isUserLoggedIn} exact path='/chat/:id'>
           <MainChat />
         </LoggedInRoute>
         <LoggedInRoute isUserLoggedIn={isUserLoggedIn} path='/profile'>

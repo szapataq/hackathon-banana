@@ -9,6 +9,8 @@ export const getAllChats = (id) => {
 				ids.push(doc.data().IDReceiver)
 			});
 			return ids
+
+
 		})
 		.catch((e) => console.log(e))
 }
@@ -28,4 +30,13 @@ export const getInfoUser = (id) => {
 		})
 		return userInfo;
 	})
+}
+
+export const getAllUser = () => {
+	return firestore.collection("user").get()
+		.then((docusers) => {
+			let arrUser = []
+			docusers.forEach(user => arrUser.push(user.data()))
+			return arrUser;
+		});
 }

@@ -1,20 +1,30 @@
-import React from 'react';
-import './CommunityProfile.scss'
+import React, {useState,useEffect} from 'react';
+import './CommunityProfile.scss';
+import { getInfoUser } from '../API/chat';
+import { auth } from '../firebase';
 
 const CommunityProfile = ({ name, urlProfile, urlBackground, description }) => {
+
+	const [userCurrent, setUserCurrent] = useState([]);
+
+	const user = auth.currentUser.uid;
+	useEffect(() => {
+		getInfoUser(user).then((c) => setUserCurrent(c));
+	}, []);
+
 	return (
 		<div className="cm-profile">
 			<div className="background-picture">
-				<img src="https://isic.pe/wp-content/uploads/2020/02/MUNANQUI3-e1580855852832.jpg" 
+				<img src={userCurrent.photoCompanyUrl}
 				alt="Not available" />
 			</div>
-			<img src="https://ucsp.edu.pe/wp-content/uploads/2020/03/logo-munanqui.jpg" 
+			<img src={userCurrent.photoUserUrl} 
 			className="profile-picture" alt="Not available" />
 			<div className="items">
-				<p className="name">Textiles Camilo</p>
-				<p className="city">Lima</p>
+				<p className="name">{userCurrent.nameCompany}</p>
+				<p className="city">{userCurrent.ubication}</p>
 				<div className="container-description">
-					<p className="description">Esta es una descripcion breve del emprendedor</p>
+				<p className="description">{userCurrent.descriptionCompany}</p>
 				</div>
 			</div>
 			<p className="title-prod">Muestra tu trabajo</p>

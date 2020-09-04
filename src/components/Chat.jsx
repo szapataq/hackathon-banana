@@ -9,6 +9,7 @@ const BoxChat = () => {
 
 	const user = auth.currentUser.uid;
 	const [infoUsers, setInfoUsers] = useState([]);
+	
 	const getChats = async () => await getAllChats(user);
 	useEffect(() => {
 		getChats().then((ids) => {
