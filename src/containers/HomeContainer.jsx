@@ -14,9 +14,9 @@ function HomeContainer() {
   return (
     <div>
       <HeaderComponent className='header-container' isHome />
-      <CardHome className='content-card' title='Progreso' porcentaje='70%' description='mas emprendedores visualizaron tu perfil esta última semana' iconCard={statistics} />
-      <CardHome title='Tus pagos' description='El 28 de Setiembre vence la 5ta cuota de tu microcredito. No olvides coordinarlo con tu equipo.' iconCard={alarmaIcon} />
-      <CardHome title='Avisos' description='El 11 de Setiembre hay una nueva capacitación que podría ser de tu interés!' iconCard={avisoIcon} />
+      <CardHome className='content-card card-home' title='Progreso' porcentaje='70%' description='mas emprendedores visualizaron tu perfil esta última semana' iconCard={statistics} />
+      <CardHome className="card-home" title='Tus pagos' description='El 28 de Setiembre vence la 5ta cuota de tu microcredito. No olvides coordinarlo con tu equipo.' iconCard={alarmaIcon} />
+      <CardHome className="card-home" title='Avisos' description='El 11 de Setiembre hay una nueva capacitación que podría ser de tu interés!' iconCard={avisoIcon} />
     </div>
   )
 }
