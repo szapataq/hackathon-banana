@@ -5,7 +5,8 @@ import Button from '../components/Button'
 import logo from '../assets/icons/logo.svg'
 import emailIcon from '../assets/icons/emailIcon.svg'
 import passwordIcon from '../assets/icons/passwordIcon.svg'
-import { login } from '../API/auth'
+import { login } from '../API/auth';
+import './loginContainer.scss';
 
 function LoginContainer() {
   let history = useHistory()
@@ -32,28 +33,25 @@ function LoginContainer() {
 
 
   return (
-    <>
-      <div>
-        <img src={logo} alt="" />
+    <div className="container-login">
+      <div className="container-title">
+        <img src={logo} alt="banana" />
         <h1>BANANA</h1>
         <span>Emprendiendo juntos</span>
       </div>
       <form className='form-login'>
-        <div className='email-content'>
-          <img src={emailIcon} className='email-content-icon' />
+        <div className='email-content comun'>
+          <img src={emailIcon} className='icon-input' alt="email"/>
           <input type="email" placeholder='Correo electrónico' onChange={handleEmail} value={email} />
         </div>
-        <div className='password-content'>
-          <img src={passwordIcon} className='password-content-icon' />
+        <div className='password-content comun'>
+          <img src={passwordIcon} className='icon-input' alt="password" />
           <input type="password" placeholder='Contraseña' onChange={handlePassword} value={password} />
         </div>
-        <p>chompas-lucy@gmail.com
-        chompaslucy
-        </p>
-        <Link to='' >¿Olvidaste la contraseña?</Link>
-        <Button className="bt-login" onClick={handleForm}>Inicia Sesión</Button>
+        <div className="link-olv"><Link to='' className="link">¿Olvidaste la contraseña?</Link></div>
+        <div className="container-button"><Button className="bt-login" onClick={handleForm}>Inicia Sesión</Button></div>
       </form>
-    </>
+    </div>
   )
 }
 

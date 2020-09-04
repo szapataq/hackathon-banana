@@ -26,11 +26,17 @@
   }
   
   .bt-entrepreneur {
-    @include styleButton()
+    @include styleButton();
+
+
 }
 
 .bt-login{
-  @include styleButton()
+  @include styleButton();
+  width: 131px;
+  height: 31px;
+  justify-self: center;
+  font-size: 14px;
 }
 a{
   align-self: end;
