@@ -3,17 +3,16 @@ import { firestore, auth } from '../firebase';
 
 //------------------ENVIAR MENSAJE Y GUARDAR EN COLECCION----------------
 
-export const newMessage = (txt) => {
-	const user = auth.currentUser;
-	console.log(user)
+export const newMessage = (uid, txt) => {
 	firestore
 		.collection("chats")
 		.add({
-			IDAddressee: user.uid,
-			IDReceiver: user.uid,
-			message: {
-				user: user.uid,
-				date: new Date(),
+			IDAddressee: uid,
+			IDReceiver: uid,
+			IDChat: uid,
+			messages: {
+				uid: uid,
+				date: new Date().getHours() + ":" + new Date().getMinutes(),
 				message: txt
 			}
 		});
@@ -22,40 +21,32 @@ export const newMessage = (txt) => {
 
 //------------------- CADA COMPONENTE MENSAJE------------------
 
-
-export const searchMessages = (idDoc) => {
-	return firestore.collection("chats").doc(idDoc).collection("message").orderBy("date")
+//------------Esta funcion busca los mensajes en el chat-----------
+export const searchMessages = (IDChat) => {
+	return firestore.collection("chats").where("IDChat", "==", IDChat)
 		.get()
 		.then((queryMessages) => {
-			let chats = [];
+			const messages = [];
 			queryMessages.forEach((doc) => {
-				chats.push(doc.data());
-
+				messages.push(doc.data().messages)
 			});
-			return chats
+			return messages
 		})
 }
 
-export const getAllMessages = (idActive, queryReceiver) => {
-	return firestore.collection("chats").where("IDAddressee", "==", idActive).get().then((chats) => {
+//-----Esta funcion obtiene informacion de los chats del usuario activo------
+
+export const getAllMessages = (idUserActive, queryReceiver) => {
+	return firestore.collection("chats").where("IDAddressee", "==", idUserActive).get().then((chats) => {
 		const chatsInfo = [];
 		chats.forEach((doc) => {
-			const idChat = doc.data().id;
+			const idChat = idUserActive;
 			const IDReceiver = doc.data().IDReceiver;
-			chatsInfo.push({ idChat: idChat, IDReceiver: IDReceiver, queryReceiver: queryReceiver })
+			chatsInfo.push({ IDChat: idChat, IDReceiver: IDReceiver, queryReceiver: queryReceiver })
 		});
 		return chatsInfo
 	})
 		.catch((e) => console.log(e))
 }
-
-
-// .then((chatsInfo) => {
-// 	chatsInfo.forEach((objChat) => {
-// 		if (objChat.IDReceiver === objChat.queryReceiver) {
-// 			searchMessages(objChat.idChat)
-// 		} else { console.log("No es el chat del usuario activo y el receptor") }
-// 	})
-// })
 
 

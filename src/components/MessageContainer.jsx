@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import InputBt from './InputBt';
 import Message from './Message';
 import { auth } from '../firebase';
+import { newMessage } from '../API/message';
 
 const MessageContainer = () => {
 	const [ messageToSend, setMessageToSend] = useState("");
@@ -11,7 +12,7 @@ const MessageContainer = () => {
 	const sendMessage = (e) => {
 		e.preventDefault()
 		const user = auth.currentUser.uid;
-		//Aqui ejecutar la funcion que envia el mensaje
+		newMessage(user, messageToSend)
 	}
 	return ( 
 		<div className="message-container">

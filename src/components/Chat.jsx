@@ -2,11 +2,12 @@ import React, { useState, useEffect } from 'react';
 import { getAllChats, getInfoUser } from '../API/chat';
 import { Link } from 'react-router-dom';
 import './Chat.scss'
+import { auth } from '../firebase';
 
 
 const BoxChat = () => {
 
-	const user = "prueba";
+	const user = auth.currentUser.uid;
 	const [infoUsers, setInfoUsers] = useState([]);
 	
 	const getChats = async () => await getAllChats(user);

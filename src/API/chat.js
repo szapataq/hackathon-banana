@@ -8,8 +8,9 @@ export const getAllChats = (id) => {
 			docs.forEach((doc) => {
 				ids.push(doc.data().IDReceiver)
 			});
-			console.log(ids)
-			return ids;
+			return ids
+
+
 		})
 		.catch((e) => console.log(e))
 }
