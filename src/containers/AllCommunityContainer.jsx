@@ -29,15 +29,15 @@ const AllCommunityContainer = () => {
                 <div className="container-community-card">
                     {
                         cardCommunity.map((user) => {
-                            return <div className="card-commu" >
-                                <figure className="img-company">
-                                    <img src={user.photoCompanyUrl} alt="" />
-                                </figure>
-                                <div className="content-company">
-                                    <div>
-                                        <p>{user.nameCompany}</p>
-                                        <span>{user.ubication}</span>
-                                    </div>
+                            return <div className="card-commu" key={user.id}>
+                                        <figure className="img-company">
+                                            <img src={user.photoCompanyUrl} alt="" />
+                                        </figure>
+                                        <div className="content-company">
+                                            <div>
+                                                <p>{user.nameCompany}</p>
+                                            <span>{user.ubication}</span>
+                                        </div>
                                     <Link to={`/community/${user.id}`}>
                                         <Button className='bt-seemore'>Ver más</Button>
                                     </Link>

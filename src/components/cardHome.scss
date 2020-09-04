@@ -1,37 +1,47 @@
 @import "../variables";
 
-.content-card {
-  width: 100%;
-  height: 6.125rem;
-  margin-top: 13rem;
-  box-shadow: 0 0 3px $shadow;
-}
+// .content-card {
+//   background: red;
+//   width: 100%;
+//   height: 6.125rem;
+//   margin-top: 13rem;
+//   box-shadow: 0 0 3px $shadow;
+// }
 
 .card-home {
+
+  background: #fff;
   font-family: $font;
-  margin: 0rem auto 0rem;
-  width: 22rem;
-  margin-bottom: 0.8rem;
-  height: 8rem;
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: end;
-  border-radius: 1.2rem;
+  width: 90%;
+  margin: 0 auto 32px auto;
+  height: 6.1875rem;
+  border-radius:10px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  position: relative;
+  padding: 10px 20px;
+
   h1 {
-    font-size: 1.3rem;
-    order: 1;
-    margin: 0.3rem 2rem 0.3rem;
+    // color: yellow;
+    font-style: normal;
+    font-weight: 600;
+    font-size: 16px;
+    line-height: 24px;
   }
+
   p {
-    font-family: Poppins;
-    padding: 0rem 2rem;
+    font-style: normal;
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 15px;
+    /* or 71% */  
+    /* texto secundario */
+    
+    color: #979797;
   }
   img {
-    order: 1;
-    z-index: 0;
-	padding-left: 19rem;
-    margin-bottom: -2rem;
+    position: absolute;
+    top:10px;
+    right: 10px;
   }
 }
 
