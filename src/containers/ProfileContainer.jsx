@@ -6,6 +6,7 @@ import './profileContainer.scss'
 
 function ProfileContainer() {
 	const [userCurrent, setUserCurrent] = useState([]);
+	const signOut = () => auth.signOut();
 
 	const user = auth.currentUser.uid;
 	useEffect(() => {
@@ -22,6 +23,7 @@ function ProfileContainer() {
 				<img src={userCurrent.photoUserUrl}
 					className="profile-picture" alt="Not available" />
 				<div className="items">
+					<button onClick={signOut}>Cerrar Sesion</button>
 					<p className="name">{userCurrent.nameCompany}</p>
 					<p className="city">{userCurrent.ubication}</p>
 					<div className="container-description">

@@ -51,6 +51,20 @@
   flex-direction: column;
   padding: 0rem 0.5rem;
   align-items: center;
+  button {
+	position: absolute;
+    top: 2rem;
+    right: 1rem;
+    font-size: 0.99rem;
+    font-family: Poppins;
+    background-color: #376ABB;
+    outline: none;
+    border: 2px solid;
+    border-radius: 3rem;
+    color: white;
+    width: 8.5rem;
+    height: 2.8rem;
+  }
 }
 
 .name {
