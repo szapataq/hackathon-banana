@@ -48,7 +48,7 @@ const AllCommunityContainer = () => {
         <div className="container-community-card">
           {cardCommunity.map((user) => {
             return (
-              <div className="card-commu">
+              <div className="card-commu" key={user.id}>
                 <figure className="img-company">
                   <img src={user.photoCompanyUrl} alt="" />
                 </figure>

@@ -21,7 +21,7 @@ function HeaderComponent({ isHome, imageIcon, titleHeader, ...rest }) {
           <div className='.header-container'>
             < p className='header-container-title'>BANANA</p>
             <img src={logo} alt="icono del logo" className='header-container-logo' />
-            <p className='header-container-welcome'>¡Bienvenidx, {userCurrent.nameCompany}!</p>
+      <p className='header-container-welcome'>¡Bienvenidx, {userCurrent.nameCompany}!</p>
             <div className='header-container-div'>
               <img src={notificationMessage} alt="icon message" className='header-container-div-iconMesagge' />
               <p className='header-container-div-textNotification'>Tienes 1 mensaje nuevo</p>
@@ -30,9 +30,9 @@ function HeaderComponent({ isHome, imageIcon, titleHeader, ...rest }) {
           :
           <div className='header'>
             <button className='header-back'>
-              <img src={backIcon} />
+              <img src={backIcon} alt="icono"/>
             </button>
-            <img src={imageIcon} alt="icon message" className='header-logo' />
+            <img src={logo} alt="icon message" className='header-logo' />
             <p className='header-title'>{titleHeader}</p>
           </div>
       }
