@@ -3,9 +3,12 @@ import CommunityCard from "../components/CommunityCard";
 import { getInfoUser } from "../API/chat";
 import { auth } from "../firebase";
 import "./profileContainer.scss";
+ 
 
 function ProfileContainer() {
   const [userCurrent, setUserCurrent] = useState([]);
+
+  	const signOut = () => auth.signOut();
 
 	const user = auth.currentUser.uid;
 	useEffect(() => {
@@ -34,7 +37,7 @@ function ProfileContainer() {
 
 				</div>
 			</div>
-			<CardCatalogue />
+			<CommunityCard />
 		</>
 	)
 }
