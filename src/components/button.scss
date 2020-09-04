@@ -6,7 +6,6 @@
   border: none;
   font-size: 0.8rem;
   border-radius: 1rem;
-  padding: 0.5rem 1.5rem;
   font-family: $font;
   box-shadow: 0 0 3px $shadow;
   &:not(:disabled){
@@ -16,6 +15,7 @@
 
 .btn-zoom{
   @include styleButton();
+  padding: 0.5rem 1.5rem;
   justify-self: center;
   a:link, a:visited, a:active{
         align-self: start;
@@ -32,10 +32,12 @@
 .bt-login{
   @include styleButton()
 }
-.bt-seemore{
-  @include styleButton();
+a{
   align-self: end;
   justify-self: end;
+}
+.bt-seemore{
+  @include styleButton();
   width: 100px;
   height: 31px;
   padding: 0;

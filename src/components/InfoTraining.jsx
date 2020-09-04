@@ -29,7 +29,7 @@ const Infodivaining = () => {
     getDataTraining();
   }, []);
 
-  
+
   return (
     <>
       <HeaderComponent imageIcon={logo} titleHeader='Capacitaciones' />
@@ -46,6 +46,10 @@ const Infodivaining = () => {
           <div className="info-row">
             <div className="first-colum">Hora</div>
             <div className="second-colum">{user.hour}</div>
+          </div>
+          <div className="info-row">
+            <div className="first-colum">Canal</div>
+            <div className="second-colum">{user.canal}</div>
           </div>
           <div className="info-row">
             <div className="first-colum">Tema</div>

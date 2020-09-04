@@ -4,6 +4,7 @@ import CommunityCard from './CommunityCard';
 function CardCatalogue() {
 	return (
 		<div>
+			<p>Nuestro Catálogo</p>
 			<CommunityCard />
 		</div>
 	)
