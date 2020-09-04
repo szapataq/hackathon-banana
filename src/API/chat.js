@@ -30,3 +30,12 @@ export const getInfoUser = (id) => {
 		return userInfo;
 	})
 }
+
+export const getAllUser = () => {
+	return firestore.collection("user").get()
+		.then((docusers) => {
+			let arrUser = []
+			docusers.forEach(user => arrUser.push(user.data()))
+			return arrUser;
+		});
+}

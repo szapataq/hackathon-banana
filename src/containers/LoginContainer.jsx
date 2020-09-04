@@ -51,8 +51,8 @@ function LoginContainer() {
         chompaslucy
         </p>
         <Link to='' >¿Olvidaste la contraseña?</Link>
+        <Button className="bt-login" onClick={handleForm}>Inicia Sesión</Button>
       </form>
-      <Button className="bt-login" onClick={handleForm}>Inicia Sesión</Button>
     </>
   )
 }
