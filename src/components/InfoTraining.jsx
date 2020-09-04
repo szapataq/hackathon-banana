@@ -27,8 +27,7 @@ const Infodivaining = () => {
       }
     };
     getDataTraining();
-  });
-  console.log(user);
+  }, []);
   
   return (
     <>
