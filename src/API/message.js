@@ -43,8 +43,8 @@ export const newMessage = (uid, txt) => {
 //------------Esta funcion busca los mensajes en el chat-----------
 export const searchMessages = (IDChat) => {
 	return firestore.collection("chats").where("IDChat", "==", IDChat)
-		// .get()
-		.onSnapshot((queryMessages) => {
+		.get()
+		.then((queryMessages) => {
 			const messages = [];
 			queryMessages.forEach((doc) => {
 				messages.push(doc.data().messages)
