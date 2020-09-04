@@ -1,11 +1,13 @@
-import React from 'react'
-import loader from '../assets/icons/loader.svg'
+import React from "react";
+import loader from "../assets/icons/loader.svg";
+import "./loader.scss";
+
 function Loader() {
   return (
-    <div>
-      <img src={loader} />
+    <div className="content-loader">
+      <img className="loader" src={loader} alt="" />
     </div>
-  )
+  );
 }
 
-export default Loader
+export default Loader;
