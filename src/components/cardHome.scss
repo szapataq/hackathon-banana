@@ -13,10 +13,9 @@
   font-family: $font;
   background-color: $textColor;
   margin: 0rem auto 0rem;
-  width: 22rem;
-  margin-bottom: 0.8rem;
-  height: 8rem;
-  display: flex;
+  width: 90%;
+  margin-bottom: 22px;
+  height: 98px;
   flex-direction: column-reverse;
   align-items: end;
   border-radius: 1.2rem;
@@ -25,7 +24,6 @@
   padding: 10px 20px;
 
   h1 {
-    // color: yellow;
     font-style: normal;
     font-weight: 600;
     font-size: 16px;
@@ -37,9 +35,6 @@
     font-weight: 500;
     font-size: 14px;
     line-height: 15px;
-    /* or 71% */
-    /* texto secundario */
-
     color: #979797;
   }
   img {
@@ -51,5 +46,4 @@
 
 .content-card {
   margin-top: 13rem;
-  // width: 22rem;
 }
