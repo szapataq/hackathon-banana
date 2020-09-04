@@ -1,0 +1,12 @@
+@import "../variables";
+
+.content-loader {
+  display: grid;
+  position: relative;
+  .loader {
+    width: 120px;
+    justify-self: center;
+    position: absolute;
+    top: 12rem;
+  }
+}

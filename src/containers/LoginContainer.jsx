@@ -1,5 +1,5 @@
-import React, { useState } from 'react'
-import { Link, useHistory } from 'react-router-dom'
+import React, { useState } from "react";
+import { Link, useHistory } from "react-router-dom";
 // import FormLogin from '../components/FormLogin'
 import Button from '../components/Button'
 import logo from '../assets/icons/logo.svg'
@@ -9,28 +9,25 @@ import { login } from '../API/auth';
 import './loginContainer.scss';
 
 function LoginContainer() {
-  let history = useHistory()
-  const [email, setEmail] = useState('')
-  const [password, setPassword] = useState('')
+  let history = useHistory();
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
 
-  // 
+  //
   function handleEmail(e) {
-    setEmail(e.target.value)
+    setEmail(e.target.value);
   }
   function handlePassword(e) {
-    setPassword(e.target.value)
+    setPassword(e.target.value);
   }
 
   function handleForm(e) {
-    e.preventDefault()
+    e.preventDefault();
     login(email, password).then(() => {
       // console.log(history)
-      history.push('/home')
-
-    })
-
+      history.push("/home");
+    });
   }
-
 
   return (
     <div className="container-login">
@@ -55,4 +52,4 @@ function LoginContainer() {
   )
 }
 
-export default LoginContainer
+export default LoginContainer;
