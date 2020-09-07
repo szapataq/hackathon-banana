@@ -7,19 +7,31 @@ import { auth } from '../firebase';
 
 const BoxChat = () => {
 
-	const user = auth.currentUser.uid;
+	const userActive = auth.currentUser.uid;
 	const [infoUsers, setInfoUsers] = useState([]);
-	
-	const getChats = async () => await getAllChats(user);
+	const getChats = async () => await getAllChats();
 	useEffect(() => {
-		getChats().then((ids) => {
-			const promises = ids.map((id) => {
-				return getInfoUser(id)
+		getChats().then((chats) => {
+			const idsPerVerificate = chats.map((id) => { return (id.IDChat.split("_")) });
+			const idsToShow = [];
+			idsPerVerificate[0].forEach((id) => {
+				if (id !== userActive) idsToShow.push(id);
+			})
+			const promises = idsToShow.map((id) => {
+				return getInfoUser(id).then((doc) => {
+					console.log(id)
+					return {
+						id: id,
+						photoUserUrl: doc.photoUserUrl,
+						nameCompany: doc.nameCompany,
+						ubication: doc.ubication
+					}
+				})
 			})
 			return Promise.all(promises)
-		}).then((r) => setInfoUsers(r))
+		}).then((arrUser) => setInfoUsers(arrUser))
 	}, []);
-	
+
 	return (
 		<div className="box-chat">
 			{infoUsers.map((user, key) => {

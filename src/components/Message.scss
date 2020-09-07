@@ -2,9 +2,39 @@
   height: 80vh;
   padding-top: 9rem;
   padding: 11rem 2rem 2rem;
-  .message {
+  .message-receiver {
     background-color: white;
     margin-bottom: 15px;
+    display: flex;
+    border-radius: 1rem;
+    flex-direction: column;
+    font-family: Poppins;
+    font-weight: 400;
+    color: #979797;
+    width: 15rem;
+    height: 7rem;
+    padding: 1.6rem 1rem 0.8rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .message-currentuser {
+    background-color: #376abb;
+    margin-bottom: 15px;
+    margin-right: 0px;
+    margin-left: 107px;
+    display: flex;
+    border-radius: 1rem;
+    flex-direction: column;
+    font-family: Poppins;
+    font-weight: 400;
+    color: white;
+    width: 15rem;
+    height: 7rem;
+    padding: 1.6rem 1rem 0.8rem;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  }
+  .message {
+    background-color: white;
+    margin: 0rem auto 0rem;
     display: flex;
     border-radius: 1rem;
     flex-direction: column;
