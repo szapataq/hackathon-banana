@@ -14,12 +14,13 @@ const BoxChat = () => {
 		getChats().then((chats) => {
 			const idsPerVerificate = chats.map((id) => { return (id.IDChat.split("_")) });
 			const idsToShow = [];
-			idsPerVerificate[0].forEach((id) => {
-				if (id !== userActive) idsToShow.push(id);
+			idsPerVerificate.forEach((obj) => {
+				obj.forEach((id) => {
+					if (id !== userActive) idsToShow.push(id);
+				})
 			})
 			const promises = idsToShow.map((id) => {
 				return getInfoUser(id).then((doc) => {
-					console.log(id)
 					return {
 						id: id,
 						photoUserUrl: doc.photoUserUrl,
