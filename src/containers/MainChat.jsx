@@ -20,17 +20,30 @@ function MainChat() {
 					if (id !== userActive && id === idReceiver) idsToShow.push(id);
 				})
 			})
-			const promises = idsToShow.map((id) => {
-				return getInfoUser(id).then((doc) => {
+			if (idsToShow.length === 0) {
+				return getInfoUser(idReceiver).then((doc) => {
+					console.log(doc)
 					return {
 						photoUserUrl: doc.photoUserUrl,
 						nameCompany: doc.nameCompany,
 					}
 				})
-			})
-			return Promise.all(promises)
+			} else {
+				const promises = idsToShow.map((id) => {
+					return getInfoUser(id).then((doc) => {
+						return {
+							photoUserUrl: doc.photoUserUrl,
+							nameCompany: doc.nameCompany,
+						}
+					})
+				})
+				return Promise.all(promises)
+			}
 		}).then((arrUser) => {
-			setInfoUsers(arrUser[0])})
+			if (Array.isArray(arrUser)) { setInfoUsers(arrUser[0]) } else {
+				setInfoUsers(arrUser)
+			}
+		})
 	}, []);
 	return (
 		<div>

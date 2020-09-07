@@ -15,9 +15,11 @@ const BoxChat = () => {
 			const idsPerVerificate = chats.map((id) => { return (id.IDChat.split("_")) });
 			const idsToShow = [];
 			idsPerVerificate.forEach((obj) => {
-				obj.forEach((id) => {
-					if (id !== userActive) idsToShow.push(id);
-				})
+				if (obj[0] === userActive || obj[1] === userActive) {
+					obj.forEach((id) => {
+						if (id !== userActive) idsToShow.push(id);
+					})
+				}
 			})
 			const promises = idsToShow.map((id) => {
 				return getInfoUser(id).then((doc) => {
