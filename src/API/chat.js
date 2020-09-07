@@ -1,25 +1,16 @@
 import { firestore } from '../firebase';
 
 
-export const getAllChats = (id) => {
-	return firestore.collection("chats").where("IDAddressee", "==", id).get()
+export const getAllChats = () => {
+	return firestore.collection("chats").get()
 		.then((docs) => {
-			const ids = [];
+			const chats = [];
 			docs.forEach((doc) => {
-				ids.push(doc.data().IDReceiver)
+				chats.push(doc.data())
 			});
-			return ids
-
-
+			return chats
 		})
 		.catch((e) => console.log(e))
-}
-
-export const getAChat = (idReceptor) => {
-	firestore.collection("chats").where("IDReceptor", "==", idReceptor).get()
-		.then((doc) => {
-			return doc[0].data()
-		})
 }
 
 export const getInfoUser = (id) => {

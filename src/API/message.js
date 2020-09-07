@@ -4,81 +4,75 @@ import * as firebase from 'firebase/app';
 
 //------------------ENVIAR MENSAJE Y GUARDAR EN COLECCION----------------
 
-export const newMessage = (uid, txt) => {
-	//Introducir el mensaje en el objeto del documento chats y no crear un nuevo documento
-	//Reemplazar ID RECEIVER
+const updateMessage = (active, receptor, txt) => {
+	firestore
+		.collection("chats").doc(`${active}_${receptor}`).update({
+			messages: firebase.firestore.FieldValue.arrayUnion({
+				uid: active,
+				date: new Date().getHours() + ":" + new Date().getMinutes(),
+				message: txt
+			})
+		});
+}
 
-	firestore.collection("chats").where("IDChat", "==", uid)
+const updateMessage2 = (active, receptor, txt) => {
+	firestore
+		.collection("chats").doc(`${active}_${receptor}`).update({
+			messages: firebase.firestore.FieldValue.arrayUnion({
+				uid: receptor,
+				date: new Date().getHours() + ":" + new Date().getMinutes(),
+				message: txt
+			})
+		});
+}
+
+
+const addMessage = (active, receptor, txt) => {
+	firestore
+		.collection("chats").doc(`${active}_${receptor}`)
+		.set({
+			IDChat: `${active}_${receptor}`,
+			messages: [{
+				uid: active,
+				date: new Date().getHours() + ":" + new Date().getMinutes(),
+				message: txt
+			}]
+		});
+}
+
+
+export const newMessage = (uid, IDReceiver, txt) => {
+	firestore.collection("chats").where("IDChat", "in", [`${uid}_${IDReceiver}`, `${IDReceiver}_${uid}`])
 		.get().then((query) => {
 			if (!query.empty) {
-				firestore
-					.collection("chats").doc(`chat-${uid}`).update({
-					messages: firebase.firestore.FieldValue.arrayUnion({
-						uid: uid,
-						date: new Date().getHours() + ":" + new Date().getMinutes(),
-						message: txt
-					})
-				});
+				firestore.collection("chats").doc(`${uid}_${IDReceiver}`).get().then((doc) => {
+					//Si existe
+					console.log(doc.exists)
+					if (doc.exists) {
+						console.log("Primer")
+						updateMessage(uid, IDReceiver, txt)
+					} else {
+						console.log("Segundo")
+						updateMessage2(IDReceiver, uid, txt)
+					}
+				})
 			} else {
-				firestore
-					.collection("chats").doc(`chat-${uid}`)
-					.set({
-						IDAddressee: uid,
-						IDReceiver: uid,
-						IDChat: uid,
-						messages: [{
-							uid: uid,
-							date: new Date().getHours() + ":" + new Date().getMinutes(),
-							message: txt
-						}]
-					});
+				addMessage(uid, IDReceiver, txt)
 			}
 		}).catch((r) => console.log(r))
 };
 
-
-
 //------------------- CADA COMPONENTE MENSAJE------------------
 
 //------------Esta funcion busca los mensajes en el chat-----------
-export const searchMessages = (IDChat) => {
-	return firestore.collection("chats").where("IDChat", "==", IDChat)
+export const searchMessages = (uid, IDReceiver) => {
+	return firestore.collection("chats").where("IDChat", "in", [`${uid}_${IDReceiver}`, `${IDReceiver}_${uid}`])
 		.get()
 		.then((queryMessages) => {
 			const messages = [];
 			queryMessages.forEach((doc) => {
 				messages.push(doc.data().messages)
 			});
-			console.log(messages)
 			return messages
 		})
 }
-
-export const getAllMessages = (idUserActive, queryReceiver) => {
-	return firestore.collection("chats").where("IDAddressee", "==", idUserActive).get().then((chats) => {
-		const chatsInfo = [];
-		chats.forEach((doc) => {
-			const idChat = idUserActive;
-			const IDReceiver = doc.data().IDReceiver;
-			chatsInfo.push({ IDChat: idChat, IDReceiver: IDReceiver, queryReceiver: queryReceiver })
-		}
-		);
-		return chatsInfo
-	})
-		.catch((e) => console.log(e))
-}
-
-//-----Esta funcion obtiene informacion de los chats del usuario activo------
-
-// export const getAllMessages = (idUserActive, queryReceiver) => {
-// 	return firestore.collection("chats").where("IDAddressee", "==", idUserActive).onSnapshot((chats) => {
-// 			const chatsInfo = [];
-// 			chats.forEach((doc) => {
-// 				const idChat = idUserActive;
-// 				const IDReceiver = doc.data().IDReceiver;
-// 				chatsInfo.push({ IDChat: idChat, IDReceiver: IDReceiver, queryReceiver: queryReceiver })
-// 			});
-// 			console.log(chatsInfo)
-// 			return(chatsInfo)
-// 	})
-// }
